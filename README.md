@@ -4,8 +4,8 @@ Dynamic programming is a computer programming method used to avoid computing
 multiple time the same subproblem in a recursive algorithm.
 
 Dynamic programming is applied to optimization problems where can be many possible solutions.
-Each solution has a value what can be find by solution with the optimal (minimum or maximum) value.
-This solution call an optimal solution to the problem.
+Each solution has a value what can be found by solution with the optimal (minimum or maximum) value.
+This solution calls an optimal solution to the problem.
 
 Dynamic programming method can design in 4 steps:
 1. Characterize the structure of an optimal solution.
@@ -13,12 +13,12 @@ Dynamic programming method can design in 4 steps:
 3. Compute the value of an optimal solution in a bottom-up fashion.
 4. Construct an optimal solution from computed information.
 
-<b>*</b>Some of the alogirthm problem can be solved by the "divide and conquer" strategy instead of Dynamic programming.
+<b>*</b>Some of the algorithm problems can be solved by the "divide and conquer" strategy instead of Dynamic programming.
 For example:
   - Merge sort
   - Quick sort
 
-Solutions for this algorithms not overlapping sub-problems, so they not classified as dynamic programming problems.
+Solutions for these algorithms not overlapping sub-problems, so they not classified as dynamic programming problems.
 
 ### The Fibonacci
 
@@ -93,7 +93,7 @@ T(n) = Ω(n2 ^ n/2) => T(n) = O(2^n)
 
 <b>O(2^n)</b> - exponential time and O(n) space complexity for call stack size.
 
-To describe <b>O(2^n)</b> time complexity, lets draw the recursion tree of calls,
+To describe <b>O(2^n)</b> time complexity, let's draw the recursion tree of calls,
 which will have depth n and intuitively figure out that this function 
 is asymptotically <b>O(2^n)</b>.
 
@@ -117,7 +117,7 @@ To prove this conjecture by induction, let shows recursion tree for F(5)
 ```
 
 In provide recursion tree of calls example, getFibonacciNumberRecursive(5) or F(5) function make
-multiple execution with same arguments:
+multiple executions with same arguments:
 - F(2) - 4 times
 - F(3) - 2 times
 - The leaves of the recursion tree will always return 1 (F(1) and F(0))
@@ -132,7 +132,7 @@ T(n) = O(2 ^ (n-1)) + O(2 ^ (n-2)) + O(1) = O(2^n)
 ```
 
 Consequently, the tight bound for this function is the Fibonacci sequence itself (~θ(1.6^n))
-whitch related to Golden ratio
+which related to Golden ratio
 
 ![Vizualization Golden ratio with numbers](https://en.wikipedia.org/wiki/Fibonacci_number#/media/File:FibonacciSpiral.svg) 
 
@@ -179,7 +179,7 @@ one execution with same arguments:
 - F(2) - 1 times
 - F(3) - 1 times
 
-For optimization memoization method time complexity, we can storing the previous two numbers only
+For optimization memoization method time complexity, we can store the previous two numbers only
 because that is all we need to get the next Fibonacci number in series.
 
 JavaScript iterative implementation
