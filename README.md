@@ -146,6 +146,26 @@ Runtime, assuming n-bit registers for each entry of memo data structure(cache Ob
 T(n) = T(n − 1) + O(1) = O(n)
 T(n) = T(n − 1) + c = O(cn)
 T(n) = O(n ^ 2)
+
+```
+
+* Show updated recursion tree for F(5) with Memoization method below.
+
+```
+
+                                        /<------------- F(5) ------------------>\
+                                      /                                          \
+                                F(4)[F(n - 1)]                                    memo[F(3)]
+                               /               \ 
+                              /                 \ 
+                     F(3)[F(n - 1)]              memo[F(2)]
+                     /           \
+                    /             \
+       F(2)[F(n - 1)]              memo[F(2)]
+      /             \
+     /               \
+  F(1)[F(n - 1)]      F(0)[F(n - 2)]
+  
 ```
 
 JavaScript implementation:
@@ -179,8 +199,58 @@ one execution with same arguments:
 - F(2) - 1 times
 - F(3) - 1 times
 
-For optimization memoization method time complexity, we can store the previous two numbers only
-because that is all we need to get the next Fibonacci number in series.
+### Improved Fibonacci Algorithm by Tail recursion
+
+Alternative optimization recursion version, can be implementation of [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
+Calculate the results first, and pass the results of your current call onto the next recursive call.
+
+Tail recursion JavaScript implementation.
+
+```js
+
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * @param number N
+ * @return number
+ */
+function getFibonacciNumberTailRecursion (n, a = 0, b = 1){
+  if (n > 0) {
+    return getFibonacciNumberTailRecursion(n - 1, b, a + b);
+  }
+  return a;
+}
+
+```
+
+In the tail-recursive case, with each evaluation of the recursive call, the running total is updated.
+
+To prove this conjecture by induction, let shows calls for F(5) tail recursion method.
+
+```
+F(5 , 1, 1)
+    ||
+    \/
+F(4 , 2, 1)
+    ||
+    \/
+F(3 , 3, 2)
+    ||
+    \/
+F(2 , 5, 3)
+
+Result - 5
+```
+
+### Improved Fibonacci Algorithm by iterative implementation
+
+* This methodics result of Dynamic programming investigation from Tail Recursion.
+
+Based on tail recursion implementation, for recrusion calls stack need O(n) space complexity. If 
+modify implementation to iterative solution, solving Fibonacci sequence with O(1) space complexity, simply store the previous two numbers only.
+Because only two numbers need to get the next Fibonacci number in series.
+Single for loop operation take O(n) time complexity, for space complexity using 3 variables O(3) => O(1).
 
 JavaScript iterative implementation
 
@@ -202,7 +272,7 @@ function getFibonacciNumberIterative(N) {
   let b = 1;
   let sum = null;
 
-  for (let i =2; i <= N; i++) {
+  for (let i = 2; i <= N; i++) {
     sum = a + b;
     a = b;
     b = sum;
@@ -212,34 +282,24 @@ function getFibonacciNumberIterative(N) {
 }
 ```
 
-Alternative optimization recursion version, can be implementation of [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
-Calculate the results first, and pass the results of your current call onto the next recursive call.
-
-Tail recursion JavaScript implementation.
-
-```js
-
-/**
- * Time complexity: O(n)
- * Space complexity: O(n)
- *
- * @param number N
- * @return number
- */
-function getFibonacciNumberTailRecursion (n, a = 0, b = 1){
-  if (n > 0) {
-    return fib(n - 1, b, a + b)
-  }
-  return a
-}
+Iterative calls in for loop operations for N = 5
 
 ```
+i(2), a(0), b(1), sum(null) // on init
+    ||
+    \/
+i(3), a(1), b(1), sum(1)
+    ||
+    \/
+i(4), a(1), b(2), sum(2)
+    ||
+    \/
+i(5), a(2), b(3), sum(3)
 
-In the tail-recursive case, with each evaluation of the recursive call, the running total is updated.
+Result b = sum = a(2) + b(3) = 5
+```
 
-#### Bonus reference.
-
-Faster Math solution, not related to Dynamic programming.
+More faster Math solution can be implemented based on Math formula calculation. This solution just bonus reference and not related to Dynamic programming topic. 
 
 ```js
 /**
@@ -255,5 +315,5 @@ function getFibonacciNumberMath (N){
 }
 ```
 
-Formula [reference](http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html). 
+Formula provide by this [reference](http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html). 
 
