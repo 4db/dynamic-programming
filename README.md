@@ -64,8 +64,8 @@ JavaScript implementation:
  * @return number
  */
 function getFibonacciNumberRecursive(N) {
-  if (N <= 1) {
-    return N;
+  if (N <= 2) {
+    return N < 1 ? 0 : 1;
   }
   return getFibonacciNumberRecursive(N - 1) + getFibonacciNumberRecursive(N - 2);
 }
@@ -184,8 +184,8 @@ const memo = {};
  * @return number
  */
 function getFibonacciNumberRecursive(N) {
-  if (N <= 1) {
-    return N;
+  if (N <= 2) {
+    return N < 1 ? 0 : 1;
   }
   if (!memo[N]) {
     memo[N] = getFibonacciNumberRecursive(N - 1) + getFibonacciNumberRecursive(N - 2);
