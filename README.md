@@ -36,7 +36,7 @@ Fibonacci sequence which approximates the [golden spiral](https://en.wikipedia.o
 The spiral is drawn starting from the inner 1×1 square and continues outwards to successively
  larger squares.
 
-![Vizualization Fibonacci sequence](https://en.wikipedia.org/wiki/Golden_ratio#/media/File:FakeRealLogSpiral.svg)
+[Vizualization Fibonacci sequence](https://en.wikipedia.org/wiki/Golden_ratio#/media/File:FakeRealLogSpiral.svg)
 
 Commonly denoted F(n) form a sequence, such that each number is the 
 sum of the two preceding ones, starting from 0 and 1.
@@ -134,7 +134,7 @@ T(n) = O(2 ^ (n-1)) + O(2 ^ (n-2)) + O(1) = O(2^n)
 Consequently, the tight bound for this function is the Fibonacci sequence itself (~θ(1.6^n))
 which related to Golden ratio
 
-![Vizualization Golden ratio with numbers](https://en.wikipedia.org/wiki/Fibonacci_number#/media/File:FibonacciSpiral.svg) 
+[Vizualization Golden ratio with numbers](https://en.wikipedia.org/wiki/Fibonacci_number#/media/File:FibonacciSpiral.svg) 
 
 ### Improved Fibonacci Algorithm by memoization.
 
